@@ -35,7 +35,7 @@ public class JobPostController {
 
     //controller method for getting all job posts
     @CrossOrigin
-    @GetMapping("/allPosts")
+    @GetMapping("/JobPost")
     public ResponseEntity<List<JobPost>> getAllJobPosts(){
 
         return  new ResponseEntity<List<JobPost>>(jobPostService.returnAllJobPosts(),HttpStatus.OK);
@@ -49,7 +49,7 @@ public class JobPostController {
 
     //controller method to get a Job Post By Id
     @CrossOrigin
-    @GetMapping("/getJobPostById/{id}")
+    @GetMapping("/JobPost/{id}")
     public ResponseEntity<JobPost> getJobPostById(@PathVariable int id) {
         Optional<JobPost> jobPostOptional = jobPostService.returnJobPostById(id);
         if (jobPostOptional != null) {
@@ -66,7 +66,7 @@ public class JobPostController {
 
     //controller method to add a job post
     @CrossOrigin
-    @PostMapping("/addJobPost")
+    @PostMapping("/JobPost")
     public ResponseEntity<JobPost> addJobPost(@RequestBody JobPost jobPost) {
         return new ResponseEntity<JobPost>(jobPostService.addJobPost(jobPost),HttpStatus.CREATED);
     }
@@ -82,7 +82,7 @@ public class JobPostController {
 
     //controller method to update a job post by id
     @CrossOrigin
-    @PutMapping("/updateJobPostById/{id}")
+    @PutMapping("/JobPost/{id}")
     public ResponseEntity<JobPost> updateJobPost(@PathVariable int id,@RequestBody JobPost jobPost) {
         Optional<JobPost> jobPostOptional=jobPostService.returnJobPostById(id);
         if (jobPostOptional!=null){
@@ -101,7 +101,7 @@ public class JobPostController {
 
     //controller method to delete a JobPost by id
    @CrossOrigin
-    @DeleteMapping("/deleteJobPostById/{id}")
+    @DeleteMapping("/JobPost/{id}")
     public ResponseEntity<String> deleteJobPostById(@PathVariable int id) {
         Optional<JobPost> jobPostOptional=jobPostService.returnJobPostById(id);
         if (jobPostOptional!=null){
