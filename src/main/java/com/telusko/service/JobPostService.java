@@ -56,4 +56,16 @@ public class JobPostService {
             return "Job post not found.";
         }
     }
+
+    public List<JobPost> searchByPostId(int postId) {
+        return jobPostRepo.findByPostId(postId);
+    }
+
+    public List<JobPost> searchByReqExperience(int reqExperience) {
+        return jobPostRepo.findByReqExperience(reqExperience);
+    }
+
+    public List<JobPost> wildcardSearch(String searchTerm) {
+        return jobPostRepo.findBySearchTerm(searchTerm);
+    }
 }
